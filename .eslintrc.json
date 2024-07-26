@@ -1,0 +1,48 @@
+{
+    "plugins": ["@angular-eslint"],
+    "root": true,
+    "ignorePatterns": ["projects/**/*"],
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "extends": [
+                "eslint:recommended",
+                "plugin:import/errors",
+                "plugin:import/warnings",
+                "plugin:import/typescript",
+                "google",
+                "plugin:@typescript-eslint/recommended"
+            ],
+            "rules": {
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": "app",
+                        "style": "camelCase"
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": "app",
+                        "style": "kebab-case"
+                    }
+                ],
+                "quotes": ["error", "single"],
+                "import/no-unresolved": 0,
+                "indent": ["error", 4],
+                "semi": ["error", "never"],
+                "max-len": ["error", { "code": 120 }],
+                "new-cap": 0,
+                "require-jsdoc": 0
+            }
+        },
+        {
+            "files": ["*.html"],
+            "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@angular-eslint/template/accessibility"],
+            "rules": {}
+        }
+    ]
+}
