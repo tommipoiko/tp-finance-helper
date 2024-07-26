@@ -7,7 +7,8 @@ import {getAuth, provideAuth} from '@angular/fire/auth'
 import {getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService} from '@angular/fire/analytics'
 import {getFirestore, provideFirestore} from '@angular/fire/firestore'
 import {getPerformance, providePerformance} from '@angular/fire/performance'
-import {getRemoteConfig, provideRemoteConfig} from '@angular/fire/remote-config'
+import {getRemoteConfig, provideRemoteConfig} from '@angular/fire/remote-config';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -30,6 +31,6 @@ export const appConfig: ApplicationConfig = {
         UserTrackingService,
         provideFirestore(() => getFirestore()),
         providePerformance(() => getPerformance()),
-        provideRemoteConfig(() => getRemoteConfig()),
+        provideRemoteConfig(() => getRemoteConfig()), provideAnimationsAsync(),
     ],
 }
